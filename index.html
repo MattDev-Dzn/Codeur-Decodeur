@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Coder-Décoder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            color: #333;
+        }
+        label {
+            font-weight: bold;
+        }
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Message Coder-Décoder</h1>
+        <div>
+            <label for="message">Message:</label><br>
+            <textarea id="message" rows="4"></textarea>
+        </div>
+        <div>
+            <label for="code">Code:</label><br>
+            <textarea id="code" rows="4"></textarea>
+        </div>
+        <button onclick="encode()">Coder</button>
+        <button onclick="decode()">Décoder</button>
+    </div>
+
+    <script>
+        function encode() {
+            const message = document.getElementById('message').value;
+            const code = btoa(message);
+            document.getElementById('code').value = code;
+        }
+
+        function decode() {
+            const code = document.getElementById('code').value;
+            const message = atob(code);
+            document.getElementById('message').value = message;
+        }
+    </script>
+</body>
+</html>
